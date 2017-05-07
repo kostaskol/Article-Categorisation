@@ -18,6 +18,14 @@ class Document:
             4: 'Technology'
         }
 
+        self.target_names_str = [
+                'Politics',
+                'Film',
+                'Football',
+                'Business',
+                'Technology'
+        ]
+
         self.data = []
         self.target = []
 
@@ -25,12 +33,16 @@ class Document:
 
         if start == 0 and end != -1:
             df = df.head(end)
+            self.size = len(df.head(end))
         elif start == 0 and end == -1:
+            self.size = len(df)
             pass
         elif start != 0 and end != -1:
             df = df.iloc[start: end]
+            self.size = end - start
         elif start != 0 and end == -1:
             df = df.iloc[start: df.size]
+            self.size = df.size - start
 
         a = np.array(df)
 

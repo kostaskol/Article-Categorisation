@@ -1,3 +1,4 @@
 train_set.csv
 test_set.csv
 .idea
+__pycache__
